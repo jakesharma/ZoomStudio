@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <title>Zoom_Studio</title>
+</head>
+<style>
+  * {
+    scroll-behavior: smooth;
+    margin: 0%;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+  }
+
+  body {
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100vw;
+    height: auto;
+  }
+
+  .home-row,
+  .menu-top-col,
+  .menu-top-col img,
+  .menu-top-col ul li,
+  .home-image,
+  .home-image p,
+  .home-image img,
+  .search1,
+  .about-row,
+  .box-left-col,
+  .image-right-col,
+  .image-right-col img,
+  .project-row,
+  .project_image,
+  .project_image img,
+  .service-row,
+  .box-right-col,
+  .image-left-col,
+  .image-left-col img,
+  .contact-row,
+  .connect-left-col,
+  .connect-left-col img,
+  .connect-left-col i,
+  .subscribe-right-col,
+  .subscribe-right-col input,
+  .middlebtn button,
+  .menu-left-col,
+  .social-right-col,
+  .social-right-col i,
+  .social-right-col .search input,
+  .logo-middle-col img,
+  .footer-row .privacy,
+  .footer-row .privacy p {
+    /* border: 2px solid red; */
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  .home-row {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: black;
+  }
+
+  .menu-top-col {
+    padding: 0px 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu-top-col ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-basis: 100%;
+  }
+
+  .menu-top-col ul li {
+    font-size: 20px;
+    padding: 14px 20px;
+    color: white;
+  }
+
+  .menu-top-col a {
+    text-decoration: none;
+    list-style-type: none;
+  }
+
+  .menu-top-col ul li:hover {
+    margin-top: 10%;
+    border-bottom: 3px solid white;
+  }
+
+  .menu-top-col a img {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .home-image {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-row .home-image p {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    font-size: 250px;
+    letter-spacing: 80px;
+    color: white;
+    margin-bottom: 20%;
+  }
+
+  .home-image img {
+    position: relative;
+    z-index: 2;
+  }
+
+  .search1 input {
+    position: relative;
+    z-index: 3;
+    float: left;
+    width: 100%;
+    background-color: black;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 25px;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* For about */
+  .about-row {
+    position: relative;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 100px;
+    border-top: 2px solid white;
+  }
+
+  .image-right-col img {
+    float: left;
+    flex-basis: 50%;
+    background-color: white;
+  }
+
+  .box-left-col {
+    float: right;
+    flex-basis: 50%;
+    background-color: white;
+    padding: 10px;
+    color: black;
+    margin-right: 1%;
+    width: 30%;
+    height: 100%;
+  }
+
+  .box-left-col .btn3 {
+    float: right;
+    width: 40%;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* For Projects */
+  .project {
+    margin-top: 2%;
+    float: left;
+    background-color: white;
+    width: 100vw;
+    height: auto;
+  }
+
+  .project p {
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 20px;
+  }
+
+  .project_image {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
+  }
+
+  .project_image img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+
+  /* For Service */
+  .service-row {
+    /* background-color: black;
+    float: left; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 100px;
+  }
+
+  .image-left-col img {
+    float: left;
+    flex-basis: 50%;
+    background-color: white;
+  }
+
+  .box-right-col {
+    float: right;
+    flex-basis: 50%;
+    background-color: white;
+    padding: 10px;
+    color: black;
+    margin-left: 1%;
+    width: 30%;
+    height: 100%;
+  }
+
+  .box-right-col .btn2 {
+    float: right;
+    width: 40%;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* For Contact */
+  .contact-row {
+    float: left;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .connect-left-col {
+    flex-basis: 50%;
+    width: 50%;
+    height: auto;
+    text-align: center;
+    max-width: 500px;
+  }
+
+  .connect-left-col i {
+    padding-top: 20px;
+    width: 50px;
+    color: black;
+  }
+
+  .subscribe-right-col {
+    flex-basis: 50%;
+    width: 50%;
+    height: auto;
+    text-align: center;
+  }
+
+  .contact-row h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .subscribe-right-col p {
+    padding: 30px;
+  }
+
+  .subscribe-right-col input {
+    width: 50%;
+    padding: 20px;
+    margin-top: 10px;
+  }
+
+  .middlebtn button {
+    color: white;
+    background: black;
+    padding: 20px;
+    margin-top: 10px;
+    border: none;
+  }
+
+  /* footer Design */
+  .footer-row {
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: auto;
+    padding: 10px 0px;
+  }
+
+  .menu-left-col {
+    flex-basis: 30%;
+  }
+
+  .menu-left-col ul li {
+    display: flex;
+    color: white;
+    margin-top: 50px;
+  }
+
+  .menu-left-col a {
+    text-decoration: none;
+    list-style-type: none;
+  }
+
+  .logo-middle-col {
+    display: flex;
+    justify-content: center;
+    flex-basis: 30%;
+    padding: 50px 0px;
+  }
+
+  .logo-middle-col img {
+    width: 60%;
+  }
+
+  .social-right-col {
+    flex-basis: 30%;
+    /* border: 2px solid red; */
+    padding: 50px 0px;
+    text-align: center;
+  }
+
+  .social-right-col i {
+    font-size: 30px;
+    color: white;
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+
+  .social-right-col .search input {
+    text-decoration: none;
+    width: 50%;
+    height: 50px;
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 20px;
+    outline: none;
+    text-align: center;
+    margin-left: 10px;
+  }
+
+  .footer-row .privacy {
+    flex-basis: 100%;
+  }
+
+  .footer-row .privacy p {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .parallax {
+    float: left;
+    background-image: url('wp1933165-photographer-wallpapers.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .parallax1 {
+    float: left;
+    background-image: url('wp1933134-photographer-wallpapers.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media screen and (max-width: 600px) {
+    body .home-row {
+      width: 100vw;
+      height: auto;
+    }
+
+    .menu-top-col {
+      padding: 10px;
+    }
+
+    .menu-top-col ul {
+      display: block;
+      flex-basis: 100%;
+    }
+
+    .menu-top-col ul li {
+      color: white;
+      font-size: 100%;
+    }
+
+    .menu-top-col ul li:hover {
+      margin-top: inherit;
+      border-bottom: inherit;
+    }
+
+    .menu-top-col img {
+      width: 100%;
+    }
+
+    .home-row .home-image p {
+      width: 100%;
+      font-size: 50px;
+      letter-spacing: 40px;
+    }
+
+    .home-image img {
+      width: 50%;
+      position: relative;
+    }
+
+    .search1 input {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* For about */
+    .about-row {
+      width: 100vw;
+      height: auto;
+      padding: 86px;
+    }
+
+    .about-row .image-right-col img {
+      flex-basis: 100%;
+      width: 99%;
+      height: auto;
+      margin-right: 1%;
+    }
+
+    .box-left-col {
+      width: 100%;
+      font-size: 10px;
+      flex-basis: 100%;
+      margin-bottom: 3%;
+    }
+
+    body .parallax {
+      float: left;
+      background-image: url('wp1933165-photographer-wallpapers.jpg');
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* For Service */
+    .service-row {
+      width: 100vw;
+      height: auto;
+      padding: 86px;
+    }
+
+    .service-row .image-left-col img {
+      flex-basis: 100%;
+      width: 99%;
+      margin-left: 1%;
+    }
+
+    .service-row .box-right-col {
+      width: 100%;
+      font-size: 10px;
+      flex-basis: 100%;
+      margin-top: 3%;
+    }
+
+    /* For Contact */
+    .connect-left-col {
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    .connect-left-col img {
+      padding: 10px;
+      float: left;
+      width: 50%;
+    }
+
+    .subscribe-right-col {
+      flex-basis: 100%;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .subscribe-right-col input {
+      width: 80%;
+    }
+
+    /* For Footer */
+    .menu-left-col {
+      flex-basis: 0%;
+      display: none;
+    }
+
+    .logo-middle-col {
+      flex-basis: 50%;
+    }
+
+    .logo-middle-col img {
+      width: 60%;
+      transform: translate(30%, 0%);
+    }
+
+    .social-right-col {
+      flex-basis: 50%;
+    }
+
+    body .parallax1 {
+      float: left;
+      background-image: url('wp1933134-photographer-wallpapers.jpg');
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+</style>
+
+<body>
+  <section class="home" id="home">
+    <div class="home-row">
+      <div class="menu-top-col">
+        <ul>
+          <a href="#about">
+            <li>About</li>
+          </a>
+          <a href="#project">
+            <li>Project</li>
+          </a>
+        </ul>
+        <a href="ZoomStudio.html"><img class="logo" src="logo.png" width="100%"></a>
+        <ul>
+          <a href="#services">
+            <li>Services</li>
+          </a>
+          <a href="#contact">
+            <li>Contact</li>
+          </a>
+        </ul>
+      </div>
+      <div class="home-image">
+        <p>Model</p>
+        <img src="Model-Man-PNG.png" width="500px">
+      </div>
+      <div class="search1">
+        <input type="search" placeholder="search.." name="search">
+      </div>
+    </div>
+  </section>
+
+  <!-- For About -->
+  <div class="parallax" id="about">
+    <div class="about-row">
+      <div class="box-left-col">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate fringilla magna eget tincidunt.
+          Proin nunc orci, tincidunt a dui vitae, fermentum consequat lectus. Suspendisse magna eros, aliquet a nisl ac,
+          gravida egestas mauris. Vivamus sit amet hendrerit dolor. Mauris et leo mollis sapien vehicula malesuada.
+        </p>
+        <button class="btn3">KEEP READING</button>
+      </div>
+      <div class="image-right-col">
+        <img src="Attractive-Model-Man-PNG-Download-Image.png" width="300px">
+      </div>
+    </div>
+  </div>
+
+  <!-- For Projects -->
+
+  <body>
+    <div class="project" id="project">
+      <p>Recent Projects</p>
+      <div class="project_image">
+        <img src="black-background.jpg" style="width:28%">
+        <img src="malepost.jpg" style="width:28%">
+        <img src="girlpost.jpg" style="width:28%">
+      </div>
+    </div>
+
+    <!-- For Service -->
+    <div class="parallax1" id="services">
+      <div class="service-row">
+        <div class="image-left-col">
+          <img src="Fashion-Model-Man.png" width="300px">
+        </div>
+        <div class="box-right-col">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate fringilla magna eget
+            tincidunt. Proin nunc orci, tincidunt a dui vitae, fermentum consequat lectus. Suspendisse magna eros,
+            aliquet a nisl ac, gravida egestas mauris. Vivamus sit amet hendrerit dolor. Mauris et leo mollis sapien
+            vehicula malesuada.
+          </p>
+          <button class="btn2">READ MORE</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- For Contact -->
+    <div class="contact-row" id="contact">
+      <div class="connect-left-col">
+        <h1>Connect</h1>
+        <img src="connect1.jpeg" width="200px;">
+        <img src="connect2.jpeg" width="200px;">
+        <img src="connect3.jpeg" width="200px;">
+        <img src="connect4.jpeg" width="200px;">
+        <div class="social">
+          <a href="#"><i class="fa fa-facebook-square"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-twitter-square"></i></a>
+        </div>
+      </div>
+      <div class="subscribe-right-col">
+        <h1>Subscribe</h1>
+        <p>Sign up with your email address to receive news and updates.</p>
+        <input type="text" name="firstname" value="" placeholder="Firstname">
+        <input type="text" name="lasttname" value="" placeholder="Lastname">
+        <input type="text" name="gmail" value="" placeholder="Email address">
+        <div class="middlebtn">
+          <button type="button" name="button">SIGN Up</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- For Footer -->
+    <div class="footer-row" style="background: black ">
+      <div class="menu-left-col">
+        <ul>
+          <a href="#">
+            <li>About <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></li>
+          </a>
+          <a href="#">
+            <li>Project <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></li>
+          </a>
+          <a href="#">
+            <li>Services <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></li>
+          </a>
+          <a href="#">
+            <li>Contact <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></li>
+          </a>
+        </ul>
+      </div>
+      <div class="logo-middle-col">
+        <a href="ZoomStudio.html"><img src="logo.png" width=200px></a>
+      </div>
+      <div class="social-right-col">
+        <a href="#"><i class="fa fa-facebook-square"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-twitter-square"></i></a>
+        <a href="#"><i class="fa fa-snapchat-square"></i></a>
+        <div class="search">
+          <input type="search" placeholder="search.." name="search">
+        </div>
+      </div>
+      <div class="privacy">
+        <p>Copyright © 2022 Zoom Studio All Rights Reserved.</p>
+      </div>
+    </div>
+  </body>
+
+</html>
